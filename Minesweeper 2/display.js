@@ -17,6 +17,7 @@ const board = createBoard(BOARD_SIZE, NUMBER_OF_MINES) //importing main function
 const boardElement = document.querySelector('.board') 
 const minesLeftText = document.querySelector("[data-mine-count]")
 const messageText = document.querySelector(".subtext")
+const ele = document.getElementById('timer');
 
 board.forEach(row => {   //attaching main function to board 
     row.forEach(tile =>{
@@ -43,7 +44,17 @@ function listMinesLeft() {
         }, 0)
         minesLeftText.textContent = NUMBER_OF_MINES - markedTilesCount
 }
-
+var timer = 0;
+var active = true;
+(function(){
+        if(active == true){
+        var sec = 1;
+        timer = setInterval(()=>{
+                ele.innerHTML = sec;
+                sec++;
+        }, 1000)   
+}     
+})();
 
 function checkGameEnd(){
         const win = checkWin(board)
@@ -52,10 +63,11 @@ function checkGameEnd(){
         if(win || lose) {
                 boardElement.addEventListener('click', stopProp, {capture: true})
                 boardElement.addEventListener('contextmenu', stopProp, {capture: true})
+                clearInterval(timer);
         }
         if(win){
                 messageText.textContent = "You Win"
-        }
+        } 
         if(lose){
                 messageText.textContent = "You Lose"
                 board.forEach(row =>{
@@ -66,7 +78,6 @@ function checkGameEnd(){
                 })
         }
 }
-
 function stopProp(e) {
         e.stopImmediatePropagation()
 }

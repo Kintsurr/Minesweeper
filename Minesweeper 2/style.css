@@ -11,6 +11,7 @@ body{
     margin: 0;
     background-color: #333;
     display: flex;
+    
     align-items: center;
     font-size: 48px;
     font-family: myFont;
@@ -24,11 +25,47 @@ body{
 .title{
     margin: 20px;
 }
-
-.subtext{
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 1000px;
+    font-size: 40px;
     color: #ccc;
-    font-size: 24px;
     margin-bottom: 10px;
+}
+#timer{
+    border: 2px solid#ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.timer p{
+    display: inline;
+    color: #333;
+}
+.restart{
+    border: 2px solid#ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.restart a{
+    color: #ccc;
+    padding: 10px;
+    
+}
+.restart:hover{
+    background-color: #777;
+}
+.subtext{
+    border: 2px solid#ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;  
 }
 
 .board {
